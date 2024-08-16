@@ -1,49 +1,39 @@
-document.addEventListener('DOMContentLoaded', function() {
-  document.getElementById('registerForm').addEventListener('submit', function(event) {
-      event.preventDefault();
+document.getElementById('registerForm').addEventListener('submit', async function(event) {
+    event.preventDefault(); // Evita que el formulario se envíe de la manera tradicional
 
-      // Limpiar mensajes de error
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirmPassword').value;
 
-      let isValid = true;
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const password = document.getElementById('password').value.trim();
-      const confirmPassword = document.getElementById('confirmPassword').value.trim();
+    // Validación simple de contraseñas
+    if (password !== confirmPassword) {
+        document.getElementById('confirmPasswordError').textContent = 'Las contraseñas no coinciden';
+        return;
+    }
 
-      // Validar nombre
-      if (name.length < 3) {
-          document.getElementById('nameError').textContent = 'El nombre debe tener al menos 3 caracteres.';
-          isValid = false;
-      }
+    // Datos del usuario
+    const userData = { name, email, password };
 
-      // Validar email
-      if (!validateEmail(email)) {
-          document.getElementById('emailError').textContent = 'Por favor, ingresa un correo electrónico válido.';
-          isValid = false;
-      }
+    try {
+        const response = await fetch('http://localhost:3000/api/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(userData)
+        });
 
-      // Validar contraseña
-      if (password.length < 6) {
-          document.getElementById('passwordError').textContent = 'La contraseña debe tener al menos 6 caracteres.';
-          isValid = false;
-      }
+        const result = await response.json();
 
-      // Validar confirmación de contraseña
-      if (password !== confirmPassword) {
-          document.getElementById('confirmPasswordError').textContent = 'Las contraseñas no coinciden.';
-          isValid = false;
-      }
-
-      // Si todos los datos son válidos, proceder con el envío del formulario
-      if (isValid) {
-          alert('Registro exitoso');
-          // Aquí puedes agregar la lógica para enviar los datos al backend
-      }
-  });
-
-  // Función para validar el formato del email
-  function validateEmail(email) {
-      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      return re.test(email);
-  }
+        if (response.ok) {
+            alert('Usuario registrado exitosamente');
+            // Puedes redirigir al usuario o limpiar el formulario aquí
+        } else {
+            document.getElementById('emailError').textContent = result.message || 'Error al registrar el usuario';
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        document.getElementById('emailError').textContent = 'Error al conectar con la API';
+    }
 });
