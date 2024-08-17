@@ -12,25 +12,25 @@ document.getElementById('registerForm').addEventListener('submit', async functio
         return;
     }
 
-    // Datos del usuario
-    const userData = { name, email, password };
+    // Datos del voluntario
+    const volunteerData = { name, email, password };
 
     try {
-        const response = await fetch('http://localhost:3000/api/register', {
+        const response = await fetch('http://localhost:3000/api/voluntarios', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(userData)
+            body: JSON.stringify(volunteerData)
         });
 
         const result = await response.json();
 
         if (response.ok) {
-            alert('Usuario registrado exitosamente');
+            alert('Voluntario registrado exitosamente');
             // Puedes redirigir al usuario o limpiar el formulario aquí
         } else {
-            document.getElementById('emailError').textContent = result.message || 'Error al registrar el usuario';
+            document.getElementById('emailError').textContent = result.message || 'Error al registrar el voluntario';
         }
     } catch (error) {
         console.error('Error:', error);

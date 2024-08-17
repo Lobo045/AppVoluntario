@@ -1,146 +1,122 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="initial-scale=1, width=device-width" />
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formulario de Registro de Voluntarios</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<style>body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  padding: 20px;
+}
 
-    <link rel="stylesheet" href="./css/global.css" />
-    <link rel="stylesheet" href="./css/log-in.css" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,700;1,700&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Basic:wght@400&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-    />
-  </head>
+.form-container {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0010pxrgba(0, 0, 0, 0.1);
+}
+
+.form-grouplabel {
+  font-weight: bold;
+}
+
+.form-check-inline {
+  margin-right: 10px;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #004085;
+}
+
+.text-danger {
+  font-size: 0.9rem;
+}
+</style>
+</head>
   <body>
-    <div class="log-in1">
-      <div class="log-in2">
-        <div class="frame-parent43">
-          <form class="log-in-parent" id="registerForm" >
-            <div class="log-in3">Log in</div>
-            <div class="social-media-signuplogin-group">
-              <div class="social-media-signuplogin2">
-                <div class="social-media-logo-container">
-                  <img
-                    class="social-media-logo2"
-                    alt=""
-                    src="./public/social-media-logo2.svg"
-                  />
-
-                  <div class="or">Usar Google</div>
-                </div>
-              </div>
-              <div class="social-media-signuplogin2">
-                <div class="social-media-logo-parent1">
-                  <img
-                    class="social-media-logo3"
-                    alt=""
-                    src="./public/social-media-logo.svg"
-                  />
-
-                  <div class="or">Usar Facebook</div>
-                </div>
-              </div>
-            </div>
-            <div class="divider">
-              <div class="divider1"></div>
-              <div class="or">OR</div>
-              <div class="divider1"></div>
-            </div>
-            <div class="email-parent">
-              <div class="email">
-                <div class="label-parent1">
-                  <label class="label3">Nombre de Usario</label>
-                  <div class="password-hide-see3">
-                    <img class="icon3" alt="" src="./public/icon.svg" />
-
-                    <div class="hide3">Hide</div>
-                  </div>
-                </div>
-                <input type="text" id="name" name="name" placeholder="Enter your username" required class="text-field6" />
-                  <div class="inputs3">
-                    <div class="or">Enter your email address</div>
-                    <div class="rectangle-div"></div>
-                  </div>
-                  <img class="icons4" alt="" src="./public/icons.svg" />
-                </input>
-                <div class="error-message3" id="emailError">Error message</div>
-              </div>
-              <div class="email-parent">
-                <div class="text-field-group">
-                  <div class="email">
-                    <div class="label-parent1">
-                      <label class="label3">Email</label>
-                    </div>
-                    <input class="text-field8" type="email" id="email" name="email" required />
-                      <div class="inputs3">
-                        <div class="inputs-child1"></div>
-                      </div>
-                      <img class="icons4" alt="" src="./public/icons.svg" />
-                    </input>
-                    <div class="error-message3" id="emailError">Error message</div>
-                    <div class="text-field-group">
-                      <div class="email">
-                        <div class="label-parent1">
-                          <label class="label3">Contaseña</label>
-                          <div class="password-hide-see4">
-                            <img class="icon3" alt="" src="./public/icon.svg" />
-                            <div class="hide3">Hide</div>
-                          </div>
-                        </div>
-                        <input class="text-field8" type="password" id="password" name="password" required />
-                          <div class="inputs3">
-                            <div class="inputs-child1"></div>
-                          </div>
-                          <img class="icons4" alt="" src="./public/icons.svg" />
-                        </input>
-                        <div class="label-parent1">
-                          <label class="label3">Confirmar Contaseña</label>
-                          <div class="password-hide-see4">
-                            <img class="icon3" alt="" src="./public/icon.svg" />
-                            <div class="hide3">Hide</div>
-                          </div>
-                        </div>
-                        <input class="text-field8" type="password" id="confirmPassword" name="confirmPassword" required />
-                          <div class="inputs3">
-                            <div class="inputs-child1"></div>
-                          </div>
-                          <img class="icons4" alt="" src="./public/icons.svg" />
-                        </input>
-                    <div class="error-message3" id="confirmPasswordError" id="passwordError">Error message</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          <div class="divider3">
-            <div class="divider1"></div>
-            <i class="or1">OR</i>
-            <div class="divider1"></div>
+    <div class="form-container">
+      <h2 class="text-center mb-4">Registro de Voluntarios</h2>
+      <form id="volunteerForm">
+          <div class="form-group">
+            <label for="name">Nombre Completo:</label>
+            <input type="text" class="form-control" id="name" name="name" required>
           </div>
-          <button class="button1" id="buttonContainer" type="submit">
-            <div class="button2">
-              <div class="icons-container">
-                <img class="icons6" alt="" src="./public/icons1.svg" />
-                <div class="or">Sign up</div>
-              </div>
-            </div>
-          </button>
-        </form>
+          <div class="form-group">
+            <label for="email">Correo Electrónico:</label>
+            <input type="email" class="form-control" id="email" name="email" required>/div>
+    <div class="form-group">
+      <label for="phone">Número de Teléfono:</label>
+      <input type="tel" class="form-control" id="phone" name="phone" required>
+    </div>
+    <div class="form-group">
+      <label for="dob">Fecha de Nacimiento:</label>
+      <input type="date" class="form-control" id="dob" name="dob" required>
+    </div>
+    <div class="form-group">
+      <label for="gender">Género:</label>
+      <br>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="gender" id="male" value="male" required>
+        <label class="form-check-label" for="male">Masculino</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="gender" id="female" value="female" required>
+        <label class="form-check-label" for="female">Femenino</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="gender" id="other" value="other" required>
+        <label class="form-check-label" for="other">Otro</label>
       </div>
     </div>
-
-    <script src="js/crearcuenta.js"> </script>
-    
-  </body>
+    <div class="form-group">
+      <label for="address">Dirección:</label>
+      <textarea class="form-control" id="address" name="address" rows="3" required>
+      </textarea>
+    </div>
+    <div class="form-group">
+      <label for="interests">Áreas de Interés:</label>
+      <select multiple class="form-control" id="interests" name="interests[]" required>
+        <option value="education">Educación</option>
+        <option value="health">Salud</option>
+        <option value="environment">Medio Ambiente</option>
+        <option value="community">Comunidad</option>
+      </select>
+      <small class="text-muted">Mantenga presionada la tecla CTRL para seleccionar múltiples opciones.</small>
+    </div>
+    <div class="form-group">
+        <label for="availability">Disponibilidad:</label>
+        <br>
+        <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="weekday" name="availability" value="weekday">
+        <label class="form-check-label" for="weekday">Días de semana</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="weekend" name="availability" value="weekend">
+        <label class="form-check-label" for="weekend">Fines de semana</label>
+        </div>
+    </div>
+      <div class="form-group">
+      <label for="comments">Comentarios Adicionales:</label>
+      <textarea class="form-control" id="comments" name="comments" rows="3">
+      </textarea>
+    </div>
+    <div class="form-group text-center">
+      <button type="submit" class="btn btn-primary">Registrar</button>
+    </div>
+  </form>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+|</body>
 </html>
